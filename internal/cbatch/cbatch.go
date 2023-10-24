@@ -22,11 +22,12 @@ import (
 	"bufio"
 	"context"
 	"fmt"
-	log "github.com/sirupsen/logrus"
 	"os"
 	"regexp"
 	"strconv"
 	"strings"
+
+	log "github.com/sirupsen/logrus"
 )
 
 type CbatchArg struct {
@@ -107,6 +108,8 @@ func ProcessCbatchArg(args []CbatchArg) (bool, *protos.TaskToCtld) {
 			task.Excludes = strings.Split(arg.val, ",")
 		case "--nodelist", "-w":
 			task.Nodelist = strings.Split(arg.val, ",")
+		case "--container":
+			task.Container = arg.val
 		default:
 			log.Fatalf("Invalid parameter given: %s\n", arg.name)
 		}
