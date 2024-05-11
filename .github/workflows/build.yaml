@@ -42,7 +42,7 @@ jobs:
           go build ../cmd/ccontrol/ccontrol.go 
           go build ../cmd/cinfo/cinfo.go
           go build ../cmd/cqueue/cqueue.go
-          popd out
+          popd
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
